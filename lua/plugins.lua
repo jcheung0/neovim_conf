@@ -20,8 +20,16 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-nvim-lsp'
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' 
+  use 'mfussenegger/nvim-dap'
 
   use {"tpope/vim-vinegar"}
+  
+ 
+  use {'theHamsta/nvim-dap-virtual-text'}
+
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  use {'nvim-telescope/telescope-dap.nvim'}
+  use {'mfussenegger/nvim-dap-python'}
   use {
 	 "kyazdani42/nvim-tree.lua",
 	 requires = {
@@ -54,7 +62,11 @@ return require('packer').startup(function()
   end
 }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-
+  use 'leoluz/nvim-dap-go'
+  use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
   if PACKER_BOOTSTRAP then
     require('packer').sync()
   end
