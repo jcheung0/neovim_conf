@@ -2,7 +2,7 @@
 
 require('editorconf')
 require('plugins')
-require('python-init')
+require('lsp')
 require('autocomplete')
 require('keybindings')
 require('dbg')
