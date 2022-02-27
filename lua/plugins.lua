@@ -25,9 +25,13 @@ return require('packer').startup(function()
   use 'bazelbuild/vim-bazel'
   use 'google/vim-maktaba'
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
-
+  use 'tpope/vim-fugitive'
   use 'ellisonleao/gruvbox.nvim'
+  use 'mfussenegger/nvim-jdtls'
+  use 'navarasu/onedark.nvim'
 
+  use 'nvim-lua/lsp-status.nvim'
+  use 'Mofiqul/dracula.nvim'
 
   use {"tpope/vim-vinegar"}
   use 'editorconfig/editorconfig-vim'
@@ -40,11 +44,16 @@ return require('packer').startup(function()
     requires = {
       'nvim-lua/plenary.nvim'
     },
+    
+    config = function()
+      require('gitsigns').setup()
+    end
     -- tag = 'release' -- To use the latest release
   }
 
   use 'airblade/vim-gitgutter'
 
+  use 'glepnir/lspsaga.nvim' 
   use {
     'kdheepak/tabline.nvim',
     config = function()

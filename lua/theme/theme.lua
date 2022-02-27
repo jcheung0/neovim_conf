@@ -11,6 +11,19 @@ require('lualine').setup {
 
 
 
+require('onedark').setup {
+    style = 'dark',
+    code_style = {
+        comments = 'italic',
+        keywords = 'none',
+        functions = 'none',
+        strings = 'none',
+        variables = 'none'
+    }
+}
+require('onedark').load()
+
+
  require'bufferline'.setup{
  
  	options = {
