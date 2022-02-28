@@ -27,7 +27,6 @@ return require('packer').startup(function()
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
   use 'tpope/vim-fugitive'
   use 'ellisonleao/gruvbox.nvim'
-  use 'mfussenegger/nvim-jdtls'
   use 'navarasu/onedark.nvim'
 
   use 'nvim-lua/lsp-status.nvim'
