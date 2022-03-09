@@ -1,6 +1,5 @@
 require("lsp.python-init")
-
-require('rust-tools').setup({})
+require("lsp.rust")
 
 
 -- enable lspsaga
