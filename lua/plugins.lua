@@ -19,18 +19,22 @@ return require('packer').startup(function()
   use 'neovim/nvim-lspconfig' 
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
-
+  use 'p00f/clangd_extensions.nvim'
   use 'simrat39/rust-tools.nvim'
-
+  use 'Hoffs/omnisharp-extended-lsp.nvim'
+  use 'omnisharp/omnisharp-vim'
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' 
   use 'mfussenegger/nvim-dap'
   use 'bazelbuild/vim-bazel'
   use 'google/vim-maktaba'
-  use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
   use 'tpope/vim-fugitive'
   use 'ellisonleao/gruvbox.nvim'
   use 'navarasu/onedark.nvim'
+  use {'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons'}
+  use 'windwp/nvim-autopairs'
+  use 'sheerun/vim-polyglot'
+  use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
 
   use 'nvim-lua/lsp-status.nvim'
   use 'Mofiqul/dracula.nvim'
