@@ -22,6 +22,8 @@ return require('packer').startup(function()
   use 'p00f/clangd_extensions.nvim'
   use 'simrat39/rust-tools.nvim'
   use 'Hoffs/omnisharp-extended-lsp.nvim'
+  use 'fatih/vim-go'
+  use 'sebdah/vim-delve'
   use 'omnisharp/omnisharp-vim'
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' 
