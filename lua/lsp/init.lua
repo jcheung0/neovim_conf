@@ -1,27 +1,44 @@
 require("lsp.python-init")
 require("lsp.rust")
 require("lsp.omnisharp")
+require ("lsp.lua-init")
 
-require'lspconfig'.svelte.setup{}
-require'lspconfig'.tailwindcss.setup{}
-require'lspconfig'.gopls.setup{}
-require'lspconfig'.gradle_ls.setup{}
-require'lspconfig'.kotlin_language_server.setup{}
-require'lspconfig'.pyright.setup{}
-require'lspconfig'.tsserver.setup{}
-require'lspconfig'.ansiblels.setup{}
-require'lspconfig'.bashls.setup{}
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-require'lspconfig'.ccls.setup{}
-require'lspconfig'.clangd.setup{}
-require'lspconfig'.cmake.setup{}
-require'lspconfig'.intelephense.setup{}
-require'lspconfig'.jdtls.setup{}
-require'lspconfig'.metals.setup{}
-require'lspconfig'.clojure_lsp.setup{}
-require'lspconfig'.omnisharp.setup{}
+local lspconfig = require('lspconfig')
 
 require('nvim-autopairs').setup{}
+
+local servers = { 'clangd', 
+  'rust_analyzer', 
+  'pyright', 
+  'tsserver',
+  'svelte',
+  'tailwindcss',
+  'gopls',
+  'gradle_ls',
+  'kotlin_language_server',
+  'ansiblels',
+  'bashls',
+  'ccls',
+  'cmake',
+  'intelephense',
+  'metals',
+  'clojure_lsp',
+  'omnisharp',
+  'jdtls'
+}
+
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    -- on_attach = my_custom_on_attach,
+    capabilities = capabilities,
+  }
+end
+
+
+
 
 
 -- If you want insert `(` after select function or method item

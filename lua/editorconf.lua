@@ -1,5 +1,4 @@
 
-require'nvim-tree'.setup()
 
 local set = vim.opt
 

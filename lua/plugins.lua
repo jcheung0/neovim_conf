@@ -1,7 +1,3 @@
-
-
-
-
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -109,12 +105,7 @@ return require('packer').startup(function()
 	 config = function()
 	       require("nvim-web-devicons").setup()
 
-	      require("nvim-tree").setup {
-		hijack_cursor = true,
-		view = {
-		  width = 40
-		}
-	      }	
+	    require("nvim-tree").setup()
 	 end
  }
  use {
