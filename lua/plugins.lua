@@ -32,10 +32,13 @@ return require('packer').startup(function()
   use {'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons'}
   use 'windwp/nvim-autopairs'
   use 'sheerun/vim-polyglot'
+  use 'liuchengxu/vista.vim'
+  use 'karb94/neoscroll.nvim'
   use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
-
+  use 'mhinz/vim-startify'
   use 'nvim-lua/lsp-status.nvim'
   use 'Mofiqul/dracula.nvim'
+  use 'lewis6991/impatient.nvim'
 
   use {"tpope/vim-vinegar"}
   use 'editorconfig/editorconfig-vim'
@@ -92,6 +95,13 @@ return require('packer').startup(function()
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
+  use {
+    'goolord/alpha-nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+    config = function ()
+        require'alpha'.setup(require'alpha.themes.dashboard'.config)
+    end
+  }
   use {'theHamsta/nvim-dap-virtual-text'}
 
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
