@@ -13,8 +13,7 @@ end
 util.map("n","<C-p>",":Telescope find_files <CR>")
 util.map("n","<C-d>",":NvimTreeOpen <CR>")
 util.map("n","<C-g>",":Telescope live_grep <CR>")
-
 util.map("n","<C-b>",":lua require'dap'.toggle_breakpoint() <CR>")
-
+util.map("n", "<Leader>e", ":echo you just pressed the leader")
 
 

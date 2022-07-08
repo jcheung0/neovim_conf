@@ -28,6 +28,7 @@ return require('packer').startup(function()
   use 'google/vim-maktaba'
   use 'tpope/vim-fugitive'
   use 'ellisonleao/gruvbox.nvim'
+
   use 'navarasu/onedark.nvim'
   use {'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons'}
   use 'windwp/nvim-autopairs'
@@ -42,9 +43,19 @@ return require('packer').startup(function()
 
   use {"tpope/vim-vinegar"}
   use 'editorconfig/editorconfig-vim'
- use 'Mofiqul/vscode.nvim'
-  
+  use 'Mofiqul/vscode.nvim'
+
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+
+  use 'dense-analysis/ale'
+  use 'machakann/vim-sandwich'
   use 'mfussenegger/nvim-jdtls'
+
+
+  use {
+    'glacambre/firenvim',
+    run = function() vim.fn['firenvim#install'](0) end 
+  }
 
   use {
     'lewis6991/gitsigns.nvim',
