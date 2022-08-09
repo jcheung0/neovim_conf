@@ -15,5 +15,8 @@ util.map("n","<C-d>",":NvimTreeOpen <CR>")
 util.map("n","<C-g>",":Telescope live_grep <CR>")
 util.map("n","<C-b>",":lua require'dap'.toggle_breakpoint() <CR>")
 util.map("n", "<Leader>e", ":echo you just pressed the leader")
+util.map("n","<C-l>",":CommentToggle <CR>")
+
+util.map("v","<C-l>",":CommentToggle  <CR>")
 
 

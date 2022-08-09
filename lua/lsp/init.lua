@@ -2,6 +2,7 @@ require("lsp.python-init")
 require("lsp.rust")
 require("lsp.omnisharp")
 require ("lsp.lua-init")
+require('nvim_comment').setup()
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)

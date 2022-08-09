@@ -18,6 +18,8 @@ return require('packer').startup(function()
   use 'p00f/clangd_extensions.nvim'
   use 'simrat39/rust-tools.nvim'
   use 'Hoffs/omnisharp-extended-lsp.nvim'
+ 	use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
+
   use 'fatih/vim-go'
   use 'sebdah/vim-delve'
   use 'omnisharp/omnisharp-vim'
@@ -28,7 +30,7 @@ return require('packer').startup(function()
   use 'google/vim-maktaba'
   use 'tpope/vim-fugitive'
   use 'ellisonleao/gruvbox.nvim'
-
+  use 'kosayoda/nvim-lightbulb'
   use 'navarasu/onedark.nvim'
   use {'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons'}
   use 'windwp/nvim-autopairs'
@@ -40,6 +42,7 @@ return require('packer').startup(function()
   use 'nvim-lua/lsp-status.nvim'
   use 'Mofiqul/dracula.nvim'
   use 'lewis6991/impatient.nvim'
+  use "terrortylor/nvim-comment"
 
   use {"tpope/vim-vinegar"}
   use 'editorconfig/editorconfig-vim'
@@ -56,6 +59,7 @@ return require('packer').startup(function()
     'glacambre/firenvim',
     run = function() vim.fn['firenvim#install'](0) end 
   }
+
 
   use {
     'lewis6991/gitsigns.nvim',
@@ -153,5 +157,6 @@ return require('packer').startup(function()
   if PACKER_BOOTSTRAP then
     require('packer').sync()
   end
+
 
 end)
