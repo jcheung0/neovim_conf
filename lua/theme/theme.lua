@@ -26,10 +26,13 @@ require('onedark').load()
 require("bufferline").setup{
  	options = {
     separator_style = 'thin',
- 		indicator_icon = ' ',
-     	buffer_close_icon = '',
-     	modified_icon = '●',
-     	close_icon = '',
+    indicator = {
+        style = "icon",
+        icon = "|"
+    },
+    buffer_close_icon = '',
+    modified_icon = '●',
+    close_icon = '',
  		close_command = "Bdelete %d",
  		right_mouse_command = "Bdelete! %d",
  		left_trunc_marker = '',
