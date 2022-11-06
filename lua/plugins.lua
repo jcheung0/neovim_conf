@@ -20,6 +20,8 @@ return require('packer').startup(function()
   use 'Hoffs/omnisharp-extended-lsp.nvim'
  	use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 
+  use { "williamboman/mason.nvim" }
+
   use 'fatih/vim-go'
   use 'sebdah/vim-delve'
   use 'omnisharp/omnisharp-vim'
@@ -43,7 +45,7 @@ return require('packer').startup(function()
   use 'Mofiqul/dracula.nvim'
   use 'lewis6991/impatient.nvim'
   use "terrortylor/nvim-comment"
-
+  use 'pantharshit00/vim-prisma'
   use {"tpope/vim-vinegar"}
   use 'editorconfig/editorconfig-vim'
   use 'Mofiqul/vscode.nvim'
@@ -75,7 +77,17 @@ return require('packer').startup(function()
 
   use 'airblade/vim-gitgutter'
 
-  use 'glepnir/lspsaga.nvim' 
+  use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = function()
+        local saga = require("lspsaga")
+
+          saga.init_lsp_saga({
+              -- your configuration
+          })
+      end,
+  })
   use {
     'kdheepak/tabline.nvim',
     config = function()

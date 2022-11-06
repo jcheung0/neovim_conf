@@ -4,6 +4,8 @@ require("lsp.omnisharp")
 require ("lsp.lua-init")
 require('nvim_comment').setup()
 
+require("mason").setup()
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
@@ -53,6 +55,6 @@ cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex 
 -- cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"
 
 -- enable lspsaga
-local saga = require 'lspsaga'
-saga.init_lsp_saga()
+-- local saga = require 'lspsaga'
+-- saga.init_lsp_saga()
 

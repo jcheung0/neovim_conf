@@ -8,9 +8,9 @@ set.shiftwidth = 2
 set.softtabstop = 2
 set.expandtab = true
 
-set.number = true
+---set.number = true
 set.cursorline = true
-
+set.relativenumber = true
 
 vim.g.dap_virtual_text = true
 --vim.g.clipboard = 'unnamedplus'
