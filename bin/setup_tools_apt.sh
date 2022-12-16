@@ -3,6 +3,12 @@
 
 sudo apt-get update -y 
 
-sudo apt-get install ripgrep
+deps=('ripgrep' 'hello')
+
+
+echo "${deps[*]}"
+
+sudo apt-get install ${deps[*]} -y
+
 
 

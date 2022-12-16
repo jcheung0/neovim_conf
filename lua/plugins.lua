@@ -19,15 +19,17 @@ return require('packer').startup(function()
   use 'simrat39/rust-tools.nvim'
   use 'Hoffs/omnisharp-extended-lsp.nvim'
  	use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
+  use { 'RubixDev/mason-update-all' }
 
   use { "williamboman/mason.nvim" }
-
+  use { "github/copilot.vim"}
   use 'fatih/vim-go'
   use 'sebdah/vim-delve'
   use 'omnisharp/omnisharp-vim'
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' 
   use 'mfussenegger/nvim-dap'
+
   use 'bazelbuild/vim-bazel'
   use 'google/vim-maktaba'
   use 'tpope/vim-fugitive'

@@ -2,6 +2,8 @@ require('telescope').load_extension('dap')
 require('dbg.python')
 require('dbg.go')
 require("dapui").setup()
+require('mason-update-all').setup()
+
 local utils = require('utils')
 
 utils.map('n', '<leader>dct', '<cmd>lua require"dap".continue()<CR>')
