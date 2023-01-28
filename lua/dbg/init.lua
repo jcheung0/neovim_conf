@@ -3,6 +3,7 @@ require('dbg.python')
 require('dbg.go')
 require("dapui").setup()
 require('mason-update-all').setup()
+require("nvim-dap-virtual-text").setup()
 
 local utils = require('utils')
 
@@ -40,3 +41,19 @@ utils.map('n', '<leader>dv',
           '<cmd>lua require"telescope".extensions.dap.variables{}<CR>')
 utils.map('n', '<leader>df',
           '<cmd>lua require"telescope".extensions.dap.frames{}<CR>')
+
+local dap, dapui =require("dap"),require("dapui")
+
+dap.listeners.after.event_initialized["dapui_config"]=function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated["dapui_config"]=function()
+  dapui.close()
+end
+dap.listeners.before.event_exited["dapui_config"]=function()
+  dapui.close()
+end
+
+
+vim.fn.sign_define('DapBreakpoint',{ text ='🟥', texthl ='', linehl ='', numhl =''})
+vim.fn.sign_define('DapStopped',{ text ='▶️', texthl ='', linehl ='', numhl =''})

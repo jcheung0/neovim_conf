@@ -24,6 +24,15 @@ return {
           key = "d",
           mods = "CMD|SHIFT",
           action = wezterm.action.SplitVertical{ domain = 'CurrentPaneDomain'},
-      }
+      },
+      {
+         key = "c",
+         mods = "CMD",
+         action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection',
+      },
+      { key = 'v', mods = 'CMD', action = wezterm.action.PasteFrom 'Clipboard' },
+      { key = '[', mods = 'CTRL', action = wezterm.action.ActivateTabRelative(-1) },
+      { key = ']', mods = 'CTRL', action = wezterm.action.ActivateTabRelative(1) },
+      { key = 't', mods = 'CTRL', action = wezterm.action.SpawnTab 'CurrentPaneDomain' },
     },
  }

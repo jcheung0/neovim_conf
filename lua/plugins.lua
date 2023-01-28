@@ -83,11 +83,7 @@ return require('packer').startup(function()
     "glepnir/lspsaga.nvim",
     branch = "main",
     config = function()
-        local saga = require("lspsaga")
-
-          saga.init_lsp_saga({
-              -- your configuration
-          })
+        require("lspsaga").setup({})
       end,
   })
   use {
@@ -131,6 +127,7 @@ return require('packer').startup(function()
         require'alpha'.setup(require'alpha.themes.dashboard'.config)
     end
   }
+
   use {'theHamsta/nvim-dap-virtual-text'}
 
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
