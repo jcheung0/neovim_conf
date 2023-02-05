@@ -1,15 +1,9 @@
 
-
-
 require('lualine').setup {
  options = {
-   -- ... 
    theme = 'vscode'
-   -- ... 
  }
 }
-
-
 
 require('onedark').setup {
     style = 'dark',
@@ -22,7 +16,6 @@ require('onedark').setup {
     }
 }
 require('onedark').load()
-
 require("bufferline").setup{
  	options = {
     separator_style = 'thin',

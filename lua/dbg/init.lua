@@ -1,6 +1,6 @@
 require('telescope').load_extension('dap')
-require('dbg.python')
-require('dbg.go')
+require('dap-go').setup()
+require('dap-python').setup('~/.pyenv/shims/python')
 require("dapui").setup()
 require('mason-update-all').setup()
 require("nvim-dap-virtual-text").setup()
