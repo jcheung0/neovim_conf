@@ -135,13 +135,6 @@ return require('packer').startup(function(use)
 
  use {
     "folke/which-key.nvim",
-    config = function()
-      require("which-key").setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
-    end
   }
 
    use {
@@ -168,7 +161,7 @@ return require('packer').startup(function(use)
     "startup-nvim/startup.nvim",
     requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
     config = function()
-        require"startup".setup(require"configs.startup_nvim")
+        require"startup".setup({})
     end
   }
 

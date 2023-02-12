@@ -44,3 +44,7 @@ vim.g.vscode_disable_nvimtree_bg = true
 vim.cmd[[colorscheme onedark]]
 
 require('impatient')
+require("which-key").setup {}
+require("nvim-web-devicons").setup()
+require("nvim-tree").setup()
+
