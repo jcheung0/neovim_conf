@@ -1,2 +1,2 @@
-require'lspconfig'.lua_ls.setup {}
+-- require'lspconfig'.lsp_lua.setup {}
 

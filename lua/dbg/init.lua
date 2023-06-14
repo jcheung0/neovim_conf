@@ -1,11 +1,16 @@
 require('telescope').load_extension('dap')
 require('dap-go').setup()
 require('dap-python').setup('~/.pyenv/shims/python')
+
 require("dapui").setup()
 require('mason-update-all').setup()
 require("nvim-dap-virtual-text").setup()
-
+local dap = require('dap')
 local utils = require('utils')
+
+
+dap.configurations.dapui_console = {
+}
 
 utils.map('n', '<leader>dct', '<cmd>lua require"dap".continue()<CR>')
 utils.map('n', '<leader>dsv', '<cmd>lua require"dap".step_over()<CR>')
@@ -42,18 +47,11 @@ utils.map('n', '<leader>dv',
 utils.map('n', '<leader>df',
           '<cmd>lua require"telescope".extensions.dap.frames{}<CR>')
 
-local dap, dapui =require("dap"),require("dapui")
 
-dap.listeners.after.event_initialized["dapui_config"]=function()
-  dapui.open()
-end
-dap.listeners.before.event_terminated["dapui_config"]=function()
-  dapui.close()
-end
-dap.listeners.before.event_exited["dapui_config"]=function()
-  dapui.close()
-end
 
+require("neodev").setup({
+  library = { plugins = { "nvim-dap-ui" }, types = true },
+})
 
 vim.fn.sign_define('DapBreakpoint',{ text ='🟥', texthl ='', linehl ='', numhl =''})
 vim.fn.sign_define('DapStopped',{ text ='▶️', texthl ='', linehl ='', numhl =''})

@@ -38,21 +38,22 @@ return require('packer').startup(function(use)
 
     'nvim-lua/lsp-status.nvim',
     'Mofiqul/dracula.nvim',
+    'Mofiqul/vscode.nvim',
+
     'lewis6991/impatient.nvim',
     "terrortylor/nvim-comment",
     'pantharshit00/vim-prisma',
-    "tpope/vim-vinegar",
+    --tpope/vim-vinegar",
     'editorconfig/editorconfig-vim',
-    'Mofiqul/vscode.nvim',
     'dense-analysis/ale',
     'machakann/vim-sandwich',
     'mfussenegger/nvim-jdtls',
-    'fatih/vim-go',
+    --'fatih/vim-go',
     'sebdah/vim-delve',
     'omnisharp/omnisharp-vim',
     'airblade/vim-gitgutter',
-    "nvim-telescope/telescope-file-browser.nvim"
-
+    "nvim-telescope/telescope-file-browser.nvim",
+    "folke/neodev.nvim"
 
   }
 
@@ -67,7 +68,10 @@ return require('packer').startup(function(use)
     requires = {
       "mfussenegger/nvim-dap",
       "nvim-lua/plenary.nvim"
-    }
+    },
+    config = function() 
+      require('dap-go').setup()
+    end
   }
 
   use {'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons'}
@@ -156,20 +160,13 @@ return require('packer').startup(function(use)
     end
   }
 
-
-  use {
-    "startup-nvim/startup.nvim",
-    requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
-    config = function()
-        require"startup".setup({})
-    end
-  }
-
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
+
   if PACKER_BOOTSTRAP then
     require('packer').sync()
   end
