@@ -1,16 +1,21 @@
 
 local wezterm = require 'wezterm';
+local act = wezterm.action
+
+local os = require 'os'
+local os_name = os.getenv("OS")
+
+wezterm.log_info("hello wezterm")
 
 
-
-return {
+local config = {
    font = wezterm.font 'Fira Code' ,
    font_size = 13.0,
-   color_scheme = 'Gruvbox Dark Hard',
+   color_scheme = 'Vs Code Dark+ (Gogh)',
    mouse_bindings = {
       {
           event = { Down = { streak = 3, button = 'Left' } },
-         action = wezterm.action.SelectTextAtMouseCursor 'SemanticZone',
+         action = act.SelectTextAtMouseCursor 'SemanticZone',
          mods = 'NONE',
       }
    },
@@ -18,21 +23,44 @@ return {
        {
           key = 'd',
           mods = 'CMD',
-          action = wezterm.action.SplitHorizontal{ domain = 'CurrentPaneDomain'},
+          action = act.SplitHorizontal{ domain = 'CurrentPaneDomain'},
       },
       {
           key = "d",
           mods = "CMD|SHIFT",
-          action = wezterm.action.SplitVertical{ domain = 'CurrentPaneDomain'},
+          action = act.SplitVertical{ domain = 'CurrentPaneDomain'},
       },
       {
          key = "c",
          mods = "CMD",
-         action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection',
+         action = act.CopyTo 'ClipboardAndPrimarySelection',
       },
-      { key = 'v', mods = 'CMD', action = wezterm.action.PasteFrom 'Clipboard' },
-      { key = '[', mods = 'CTRL', action = wezterm.action.ActivateTabRelative(-1) },
-      { key = ']', mods = 'CTRL', action = wezterm.action.ActivateTabRelative(1) },
-      { key = 't', mods = 'CTRL', action = wezterm.action.SpawnTab 'CurrentPaneDomain' },
+      {
+       key = 'LeftArrow',
+       mods = 'CTRL|SHIFT',
+       action = act.ActivatePaneDirection 'Left',
+      },
+      {
+       key = 'RightArrow',
+       mods = 'CTRL|SHIFT',
+       action = act.ActivatePaneDirection 'Right',
+      },
+      {
+       key = 'UpArrow',
+       mods = 'CTRL|SHIFT',
+       action = act.ActivatePaneDirection 'Up',
+      },
+      {
+       key = 'DownArrow',
+       mods = 'CTRL|SHIFT',
+       action = act.ActivatePaneDirection 'Down',
+      },
+      { key = 'v', mods = 'CMD', action = act.PasteFrom 'Clipboard' },
+      { key = '[', mods = 'CTRL', action = act.ActivateTabRelative(-1) },
+      { key = ']', mods = 'CTRL', action = act.ActivateTabRelative(1) },
+      { key = 't', mods = 'CTRL', action = act.SpawnTab 'CurrentPaneDomain' },
+
     },
  }
+
+ return config 

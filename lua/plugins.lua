@@ -47,10 +47,8 @@ return require('packer').startup(function(use)
     'editorconfig/editorconfig-vim',
     'dense-analysis/ale',
     'machakann/vim-sandwich',
-    'mfussenegger/nvim-jdtls',
     --'fatih/vim-go',
     'sebdah/vim-delve',
-    'omnisharp/omnisharp-vim',
     'airblade/vim-gitgutter',
     "nvim-telescope/telescope-file-browser.nvim",
     "folke/neodev.nvim"
@@ -126,7 +124,7 @@ return require('packer').startup(function(use)
 
   use {
 	 "kyazdani42/nvim-tree.lua",
-    'nvim-lualine/lualine.nvim',
+   'nvim-lualine/lualine.nvim',
 	 requires = {
 	   "kyazdani42/nvim-web-devicons",
 	 },

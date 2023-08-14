@@ -1,10 +1,25 @@
 require("lsp.python-init")
 require("lsp.rust")
-require("lsp.omnisharp")
-require ("lsp.lua-init")
 require('nvim_comment').setup()
 
 require("mason").setup()
+
+
+require("mason-lspconfig").setup(
+  {
+    ensure_installed = {
+      "lua_ls",
+      "tsserver", 
+      "tailwindcss",
+      "gopls",
+      "svelte",
+      "pyright",
+      "rust_analyzer",
+      "clangd",
+      "bashls"
+    }  
+  }
+)
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
@@ -34,12 +49,12 @@ local servers = { 'clangd',
   'hls'
 }
 
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    -- on_attach = my_custom_on_attach,
+ for _, lsp in ipairs(servers) do
+   lspconfig[lsp].setup {
+     on_attach = my_custom_on_attach,
     capabilities = capabilities,
-  }
-end
+   }
+ end
 
 
 
