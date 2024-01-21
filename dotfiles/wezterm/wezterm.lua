@@ -32,7 +32,7 @@ local config = {
       },
       {
          key = "c",
-         mods = "CMD",
+         mods = "CTRL|SHIFT",
          action = act.CopyTo 'ClipboardAndPrimarySelection',
       },
       {
@@ -55,7 +55,7 @@ local config = {
        mods = 'CTRL|SHIFT',
        action = act.ActivatePaneDirection 'Down',
       },
-      { key = 'v', mods = 'CMD', action = act.PasteFrom 'Clipboard' },
+      { key = 'v', mods = 'CTRL|SHIFT', action = act.PasteFrom 'Clipboard' },
       { key = '[', mods = 'CTRL', action = act.ActivateTabRelative(-1) },
       { key = ']', mods = 'CTRL', action = act.ActivateTabRelative(1) },
       { key = 't', mods = 'CTRL', action = act.SpawnTab 'CurrentPaneDomain' },
