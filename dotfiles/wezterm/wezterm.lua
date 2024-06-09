@@ -9,7 +9,7 @@ wezterm.log_info("hello wezterm")
 
 
 local config = {
-   font = wezterm.font 'Fira Code' ,
+   font = wezterm.font 'FiraCode Nerd Font' ,
    font_size = 13.0,
    color_scheme = 'Vs Code Dark+ (Gogh)',
    mouse_bindings = {

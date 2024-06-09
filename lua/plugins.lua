@@ -165,6 +165,8 @@ return require('packer').startup(function(use)
     run = ':TSUpdate'
   }
 
+  use { "nvim-neotest/nvim-nio" }
+
   if PACKER_BOOTSTRAP then
     require('packer').sync()
   end

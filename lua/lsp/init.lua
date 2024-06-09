@@ -1,6 +1,7 @@
 require("lsp.python-init")
 require("lsp.rust")
 require('nvim_comment').setup()
+require'lspconfig'.biome.setup{}
 
 require("mason").setup()
 
@@ -10,6 +11,7 @@ require("mason-lspconfig").setup(
     ensure_installed = {
       "lua_ls",
       "tsserver", 
+      "biome",
       "tailwindcss",
       "gopls",
       "svelte",
@@ -35,18 +37,20 @@ local servers = { 'clangd',
   'svelte',
   'tailwindcss',
   'gopls',
-  'gradle_ls',
-  'kotlin_language_server',
+  'biome',
+  --'gradle_ls',
+  --'kotlin_language_server',
   'ansiblels',
   'bashls',
-  'ccls',
+  'clangd',
   'cmake',
   'intelephense',
   'metals',
-  'clojure_lsp',
-  'omnisharp',
-  'jdtls',
-  'hls'
+  --'clojure_lsp',
+  --'omnisharp',
+  --'jdtls',
+  'hls',
+  
 }
 
  for _, lsp in ipairs(servers) do
