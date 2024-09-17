@@ -10,7 +10,7 @@ require("mason-lspconfig").setup(
   {
     ensure_installed = {
       "lua_ls",
-      "tsserver", 
+      "ts_ls", 
       "biome",
       "tailwindcss",
       "gopls",
@@ -33,7 +33,7 @@ require('nvim-autopairs').setup{}
 local servers = { 'clangd', 
   'rust_analyzer', 
   'pyright', 
-  'tsserver',
+  'ts_ls',
   'svelte',
   'tailwindcss',
   'gopls',
