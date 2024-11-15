@@ -2,7 +2,7 @@
 
 
 -- luasnip setup
-local luasnip = require 'luasnip'
+-- local luasnip = require 'luasnip'
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
@@ -18,7 +18,7 @@ vim.g.copilot_assume_mapped = true
 cmp.setup {
   snippet = {
     expand = function(args)
-      require('luasnip').lsp_expand(args.body)
+      -- require('luasnip').lsp_expand(args.body)
     end,
   },
   mapping = {
