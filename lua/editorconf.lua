@@ -46,7 +46,7 @@ vim.cmd[[colorscheme onedark]]
 require('impatient')
 require("which-key").setup {}
 require("nvim-web-devicons").setup()
-require("nvim-tree").setup()
+-- require("nvim-tree").setup()
 
 require("neodev").setup({
   library = { plugins = { "nvim-dap-ui" }, types = true },
