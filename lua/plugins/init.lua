@@ -14,4 +14,5 @@ return {
     'folke/which-key.nvim',
     'mfussenegger/nvim-dap',
     "rcarriga/nvim-dap-ui",
+    'lewis6991/impatient.nvim',
 }
