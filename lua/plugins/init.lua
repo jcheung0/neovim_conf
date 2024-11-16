@@ -8,22 +8,16 @@ return {
     "nvim-lualine/lualine.nvim",
     'Mofiqul/vscode.nvim',
     'tpope/vim-fugitive',
-    {'folke/which-key.nvim', config = function()
-    
-      require("which-key").setup {}
-      
-    end,
-    enabled = true
-    },
-    'mfussenegger/nvim-dap',
-    "rcarriga/nvim-dap-ui",
+    { 'folke/which-key.nvim',  enabled = true },
     {"folke/neodev.nvim", config = function()
-      require("neodev").setup({
-        library = { plugins = { "nvim-dap-ui" }, types = true },
-      })
+      --require("neodev").setup({
+       -- library = { plugins = { "nvim-dap-ui" }, types = true },
+      --})
         
     end
     },
+    "L3MON4D3/LuaSnip",
+    {'akinsho/bufferline.nvim',dependencies = 'kyazdani42/nvim-web-devicons'},
     'simrat39/rust-tools.nvim',
     "terrortylor/nvim-comment",
     'windwp/nvim-autopairs',

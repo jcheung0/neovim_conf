@@ -8,7 +8,14 @@ return {
       'hrsh7th/nvim-cmp',
       'hrsh7th/cmp-nvim-lsp',
     },
-    opts = function() 
+    opts = {
+      diagnostics = {
+          signs = false,
+          virtual_text = false
+      },
+
+    },
+    config = function()
       require('nvim_comment').setup()
       require("mason").setup()
       require("mason-lspconfig").setup(
@@ -18,7 +25,7 @@ return {
             "ts_ls", 
             "biome",
             "tailwindcss",
-            "gopls",
+            -- "gopls",
             "svelte",
             "pyright",
             "rust_analyzer",
@@ -30,40 +37,40 @@ return {
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-      local lspconfig = require('lspconfig')
-      lspconfig.biome.setup{}
-      lspconfig.pyright.setup{}
+      -- local lspconfig = require('lspconfig')
+      
       require('nvim-autopairs').setup{}
 
-      local servers = { 'clangd', 
-        'rust_analyzer', 
-        'pyright', 
-        'ts_ls',
-        'svelte',
-        'tailwindcss',
-        'gopls',
-        'biome',
+      local servers = { 
+        -- 'clangd', 
+        -- 'rust_analyzer', 
+        -- 'pyright', 
+        -- 'ts_ls',
+        -- 'svelte',
+        -- 'tailwindcss',
+        -- 'gopls',
+        -- 'biome',
         --'gradle_ls',
         --'kotlin_language_server',
-        'ansiblels',
-        'bashls',
-        'clangd',
-        'cmake',
-        'intelephense',
-        'metals',
+        -- 'ansiblels',
+        -- 'bashls',
+        -- 'clangd',
+        -- 'cmake',
+        -- 'intelephense',
+        -- 'metals',
         --'clojure_lsp',
         --'omnisharp',
         --'jdtls',
-        'hls'
+        -- 'hls'
       }
       
 
-       for _, lsp in ipairs(servers) do
-         lspconfig[lsp].setup {
-           on_attach = my_custom_on_attach,
-          capabilities = capabilities,
-         }
-       end
+      -- for _, lsp in ipairs(servers) do
+      --  lspconfig[lsp].setup {
+      --     on_attach = my_custom_on_attach,
+      --    capabilities = capabilities,
+      --   }
+      -- end
 
 
       -- If you want insert `(` after select function or method item
