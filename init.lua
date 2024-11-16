@@ -1,9 +1,8 @@
 -- require('plugins')
+require('editorconf')
 require("configs.lazy")
 
-require('editorconf')
-require('lsp')
-require('autocomplete')
+--require('autocomplete')
 require('keybindings')
 require('dbg')
 require('theme')

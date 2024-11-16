@@ -37,19 +37,20 @@ return {
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-      -- local lspconfig = require('lspconfig')
+       
+      local lspconfig = require('lspconfig')
       
       require('nvim-autopairs').setup{}
 
       local servers = { 
         -- 'clangd', 
         -- 'rust_analyzer', 
-        -- 'pyright', 
-        -- 'ts_ls',
+         'pyright', 
+         'ts_ls',
         -- 'svelte',
         -- 'tailwindcss',
         -- 'gopls',
-        -- 'biome',
+         'biome',
         --'gradle_ls',
         --'kotlin_language_server',
         -- 'ansiblels',
@@ -63,14 +64,13 @@ return {
         --'jdtls',
         -- 'hls'
       }
-      
 
-      -- for _, lsp in ipairs(servers) do
-      --  lspconfig[lsp].setup {
-      --     on_attach = my_custom_on_attach,
-      --    capabilities = capabilities,
-      --   }
-      -- end
+       for _, lsp in ipairs(servers) do
+        lspconfig[lsp].setup {
+           on_attach = my_custom_on_attach,
+          capabilities = capabilities,
+         }
+       end
 
 
       -- If you want insert `(` after select function or method item

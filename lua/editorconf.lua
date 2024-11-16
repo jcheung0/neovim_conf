@@ -46,6 +46,7 @@ end
 set.termguicolors = true
 set.mouse = "a"
 
+vim.g.mapleader = ";"
 
 vim.g.vscode_style = "dark"
 -- For light theme
@@ -58,6 +59,4 @@ vim.g.vscode_italic_comment = 1
 vim.g.vscode_disable_nvimtree_bg = true 
 -- vim.cmd[[colorscheme onedark]]
 
-require("nvim-web-devicons").setup()
--- require("nvim-tree").setup()
 
