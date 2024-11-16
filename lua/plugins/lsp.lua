@@ -43,26 +43,19 @@ return {
       require('nvim-autopairs').setup{}
 
       local servers = { 
-        -- 'clangd', 
-        -- 'rust_analyzer', 
+         'clangd', 
+         'rust_analyzer', 
          'pyright', 
          'ts_ls',
-        -- 'svelte',
-        -- 'tailwindcss',
-        -- 'gopls',
+         'svelte',
+         'tailwindcss',
+         -- 'gopls',
          'biome',
-        --'gradle_ls',
-        --'kotlin_language_server',
-        -- 'ansiblels',
-        -- 'bashls',
-        -- 'clangd',
-        -- 'cmake',
-        -- 'intelephense',
-        -- 'metals',
-        --'clojure_lsp',
-        --'omnisharp',
-        --'jdtls',
-        -- 'hls'
+          'gradle_ls',
+         'ansiblels',
+         'bashls',
+         'clangd',
+         'cmake',
       }
 
        for _, lsp in ipairs(servers) do

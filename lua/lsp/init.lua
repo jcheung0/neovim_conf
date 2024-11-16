@@ -1,5 +1,5 @@
 -- require("lsp.python-init")
--- require("lsp.rust")
+require("lsp.rust")
 
 
 
