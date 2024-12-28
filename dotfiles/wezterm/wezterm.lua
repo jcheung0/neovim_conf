@@ -5,7 +5,19 @@ local act = wezterm.action
 local os = require 'os'
 local os_name = os.getenv("OS")
 
-wezterm.log_info("hello wezterm")
+
+local is_linux = function()
+  	return wezterm.target_triple:find("linux") ~= nil
+end
+
+local is_mac = function()
+  	return wezterm.target_triple:find("darwin") ~= nil
+end
+
+local is_windows = function()
+  	return wezterm.target_triple:find("windows") ~= nil
+end
+
 
 
 local config = {
@@ -17,6 +29,11 @@ local config = {
           event = { Down = { streak = 3, button = 'Left' } },
          action = act.SelectTextAtMouseCursor 'SemanticZone',
          mods = 'NONE',
+      }
+   },
+   launch_menu = {
+     {
+        label = "New Tab",
       }
    },
    keys = {
@@ -62,5 +79,25 @@ local config = {
 
     },
  }
+
+ if is_windows() then
+   config.launch_menu = {
+     {
+       label = "New Tab (Ubuntu)",
+       domain = "WSL:Ubuntu"
+     }
+   }
+ end
+
+ if is_mac() then 
+   config.launch_menu = {
+     {
+        label = "New Tab",
+      },
+   }
+ end
+
+
+
 
  return config 
