@@ -1,6 +1,5 @@
 local util = require('utils')
 
-
 function map(mode,lhs,rhs,opts)
 	local options = { noremap = true}
 	if opts then
@@ -18,8 +17,11 @@ util.map("n", "<C-t>", ":tabnew <CR>")
 util.map("n","<C-g>",":Telescope live_grep <CR>")
 util.map("n","<C-b>",":lua require'dap'.toggle_breakpoint() <CR>")
 util.map("n", "<leader>e", ":echo you just pressed the leader")
+util.map("n", "<leader>n", ":lua require('notify').notify('leader has been pressed') <CR>")
 util.map("n","<C-l>",":CommentToggle <CR>")
-
 util.map("v","<C-l>",":CommentToggle  <CR>")
 
+vim.keymap.set('n', '<Esc>', function()
+    require('notify').dismiss()
+end, { desc = 'Dismiss all notifications' })
 
