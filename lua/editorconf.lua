@@ -43,6 +43,15 @@ else
 end
 
 
+vim.diagnostic.config({
+  virtual_text = true,  -- Show virtual text
+  signs = true,         -- Show signs in the sign column
+  underline = true,     -- Underline the text with an error
+  update_in_insert = false,
+  severity_sort = true,
+})
+
+
 set.termguicolors = true
 set.mouse = "a"
 
