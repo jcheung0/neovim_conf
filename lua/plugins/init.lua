@@ -22,5 +22,16 @@ return {
     "terrortylor/nvim-comment",
     'windwp/nvim-autopairs',
     'saadparwaiz1/cmp_luasnip',
+    {
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+    opts = {
+      library = {
+        -- See the configuration section for more details
+        -- Load luvit types when the `vim.uv` word is found
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
+    }
     -- {'leoluz/nvim-dap-go', opt = {require('dap-go').setup()}, enabled = true}
 }
