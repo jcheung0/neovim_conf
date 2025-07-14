@@ -5,7 +5,25 @@ return {
     "nvim-lua/popup.nvim",
     "nvim-lua/plenary.nvim",
     'nvim-treesitter/nvim-treesitter',
-    "nvim-lualine/lualine.nvim",
+    {
+      "nvim-lualine/lualine.nvim",
+      dependencies = { "kyazdani42/nvim-web-devicons", opt = true },
+      config = function()
+        require("lualine").setup({
+          options = {
+            icons_enabled = true,
+            component_separators = { left = "", right = "" },
+            section_separators = { left = "", right = "" },
+          },
+          sections = {
+            lualine_x = {
+              { require("mcphub.extensions.lualine")},
+            }
+          }
+        }
+        )
+      end,
+    },
     'Mofiqul/vscode.nvim',
     'tpope/vim-fugitive',
     { 'folke/which-key.nvim',  enabled = true },
