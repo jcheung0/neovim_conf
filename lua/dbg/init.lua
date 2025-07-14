@@ -3,19 +3,31 @@ require('telescope').load_extension('dap')
 -- require('dap-go').setup()
 -- require('dap-python').setup('~/.pyenv/shims/python')
 
-require("dapui").setup()
 -- require("nvim-dap-virtual-text").setup()
 local dap = require('dap')
 local utils = require('utils')
+local dapui = require("dapui")
+local dap_virtual_text = require("nvim-dap-virtual-text") 
+local mason_dap = require("mason-nvim-dap")
 
 require("dap-python").setup("python3")
-
 
 require("lazydev").setup({
   library = { "nvim-dap-ui" },
 })
 
-local dap, dapui = require("dap"), require("dapui")
+mason_dap.setup({
+  ensure_installed = { "cppdbg","delve","node2"},
+  automatic_installation = true,
+  handlers = {
+    function(config)
+      require("mason-nvim-dap").default_setup(config)
+    end
+  }
+})
+
+dapui.setup()
+
 dap.listeners.before.attach.dapui_config = function()
   dapui.open()
 end
@@ -30,28 +42,61 @@ dap.listeners.before.event_exited.dapui_config = function()
 end
 
 
-dap.configurations['typescript'] = {
-	{
-		type = 'pwa-node',
-		request = 'launch',
-		name = 'Launch file',
-		program = '${file}',
-		cwd = '${workspaceFolder}',
-	},
-	{
-		-- another set of configs here
-	}
+dap.configurations = {
+
+  go = { 
+    {
+      type = 'delve';
+      name = 'Debug';
+      request = 'launch';
+      showLog = false;
+      program = "${file}";
+    },
+    {
+      type = 'delve';
+      name = 'Debug test';
+      request = 'launch';
+      showLog = false;
+      mode = "test",
+      program = "${file}";
+    },
+    {
+      type = 'delve';
+      name = 'Debug test';
+      request = 'launch';
+      showLog = false;
+      mode = "test",
+      program = "./${relativeFileDirname}";
+    }
+
+
+  },
+  typescript = {
+    {
+      type = 'pwa-node',
+      request = 'launch',
+      name = 'Launch file',
+      program = '${file}',
+      cwd = '${workspaceFolder}',
+    }
+  },
+  c = {
+    {
+      name = "Launch File",
+      type = "cppdbg",
+      request = "launch",
+      program = function() 
+        return vim.fn.input("Path to executable", vim.fn.getcwd() .. "/", "file")
+      end
+    }
+  }
 }
+
 
 
 dap.configurations.dapui_console = {
 }
 
-utils.map('n', '<F1>', '<cmd>lua require"dap".continue()<CR>')
-utils.map('n', '<F2>', '<cmd>lua require"dap".step_over()<CR>')
-utils.map('n', '<F3>', '<cmd>lua require"dap".step_into()<CR>')
-utils.map('n', '<F4>', '<cmd>lua require"dap".step_out()<CR>')
-utils.map('n', '<leader>b', '<cmd>lua require"dap".toggle_breakpoint()<CR>')
 
 utils.map('n', '<leader>dsc', '<cmd>lua require"dap.ui.variables".scopes()<CR>')
 utils.map('n', '<leader>dhh', '<cmd>lua require"dap.ui.variables".hover()<CR>')

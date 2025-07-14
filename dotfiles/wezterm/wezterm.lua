@@ -31,20 +31,15 @@ local config = {
          mods = 'NONE',
       }
    },
-   launch_menu = {
-     {
-        label = "New Tab",
-      }
-   },
    keys = {
        {
           key = 'd',
-          mods = 'CMD',
+          mods = 'SUPER',
           action = act.SplitHorizontal{ domain = 'CurrentPaneDomain'},
       },
       {
           key = "d",
-          mods = "CMD|SHIFT",
+          mods = "SUPER|SHIFT",
           action = act.SplitVertical{ domain = 'CurrentPaneDomain'},
       },
       {
@@ -84,9 +79,18 @@ local config = {
    config.launch_menu = {
      {
        label = "New Tab (Ubuntu)",
-       domain = "WSL:Ubuntu"
+       domain = {DomainName = "WSL:Ubuntu"}
+     },
+     {
+       label = "New Tab (cmd)",
+       cwd = "cmd.exe"
+     },
+     {
+       label = "New Tab (powershell)",
+       cwd = "powershell.exe"
      }
    }
+   config.default_prog = {"powershell.exe"}
  end
 
  if is_mac() then 
