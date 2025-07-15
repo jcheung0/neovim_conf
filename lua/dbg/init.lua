@@ -17,7 +17,7 @@ require("lazydev").setup({
 })
 
 mason_dap.setup({
-  ensure_installed = { "cppdbg","delve","node2"},
+  ensure_installed = { "cppdbg","delve", "js-debug-adapter", "python"},
   automatic_installation = true,
   handlers = {
     function(config)
@@ -88,6 +88,25 @@ dap.configurations = {
       program = function() 
         return vim.fn.input("Path to executable", vim.fn.getcwd() .. "/", "file")
       end
+    }
+  },
+
+  python = {
+    {
+      type = 'python',
+      request = 'launch',
+      name = 'Launch file',
+      program = '${file}',
+      console = 'integratedTerminal',
+      justMyCode = false,
+    },
+    {
+      type = 'python',
+      request = 'launch',
+      name = 'Debug current test file',
+      module = 'pytest',
+      console = 'integratedTerminal',
+      justMyCode = false,
     }
   }
 }
