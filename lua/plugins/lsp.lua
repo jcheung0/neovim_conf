@@ -22,16 +22,12 @@ return {
         {
           ensure_installed = {
             "lua_ls",
-            "ts_ls", 
             "biome",
             "tailwindcss",
             "gopls",
-            "svelte",
             "pyright",
             "rust_analyzer",
-            "clangd",
             "bashls",
-            "omnisharp",
           }  
         }
       )
@@ -46,18 +42,12 @@ return {
       require('nvim-autopairs').setup{}
 
       local servers = { 
-         'clangd', 
          'rust_analyzer', 
          'pyright', 
-         'ts_ls',
          'svelte',
          'tailwindcss',
          'biome',
-          'gradle_ls',
-         'ansiblels',
          'bashls',
-         'clangd',
-         'cmake',
       }
 
        for _, lsp in ipairs(servers) do
@@ -97,51 +87,8 @@ return {
       local cmp = require('cmp')
       cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
   end
-} ,
-    {
-      'nvim-java/nvim-java',
-      dependencies = {
-        'nvim-java/lua-async-await',
-        'nvim-java/nvim-java-core',
-        'nvim-java/nvim-java-test',
-        'nvim-java/nvim-java-dap',
-        'MunifTanjim/nui.nvim',
-        'neovim/nvim-lspconfig',
-        'mfussenegger/nvim-dap',
-        {
-          'williamboman/mason.nvim',
-          opts = {
-            registries = {
-              'github:nvim-java/mason-registry',
-              'github:mason-org/mason-registry',
-            },
-          },
-        }
-  },
-
-    },
-    {
-      "seblyng/roslyn.nvim", 
-      ft = "cs",
-        {
-          'williamboman/mason.nvim',
-          opts = {
-            registries = {
-              'github:CrashDummyy/mason-registry',
-              'github:mason-org/mason-registry',
-            },
-          },
-        }
-
-    },
+}
 -- lazy.nvim
-  {
-    "GustavEikaas/easy-dotnet.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", 'nvim-telescope/telescope.nvim', },
-    config = function()
-      require("easy-dotnet").setup()
-    end
-  }
 
 
 
