@@ -1,8 +1,8 @@
 
 require('lualine').setup {
- options = {
+ --[[options = {
    theme = 'vscode'
- }
+ }--]]
 }
 
 require("bufferline").setup{

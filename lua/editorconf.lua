@@ -1,12 +1,13 @@
 local set = vim.opt
-
+local utils = require("utils")
+local os = utils.detect_os()
 
 set.tabstop = 2
 set.shiftwidth = 2
 set.softtabstop = 2
 set.expandtab = true
 
----set.number = true
+set.number = true
 set.cursorline = true
 set.relativenumber = true
 
@@ -14,7 +15,8 @@ vim.g.dap_virtual_text = true
 --vim.g.clipboard = 'unnamedplus'
 --set.clipboard = 'unnamedplus'
 
-if vim.loop.os_uname().sysname == "Windows" then
+if os == "windows" then
+  print("Setting clipboard for Windows")
   vim.g.clipboard = {
     name = "clip.exe",
     copy = {
@@ -27,7 +29,9 @@ if vim.loop.os_uname().sysname == "Windows" then
     },
     cache_enabled = true
   }
-else 
+elseif os == "mac" then
+  print("Setting clipboard for Mac")
+
   vim.g.clipboard = {
     name = "pbcopy",
     copy = {
@@ -40,6 +44,10 @@ else
     },
     cache_enabled = true
   }
+else 
+  print("No clipboard settings applied linux or unkown os" .. os) 
+  vim.g.clipboard = 'unnamedplus'
+  set.clipboard = 'unnamedplus'
 end
 
 

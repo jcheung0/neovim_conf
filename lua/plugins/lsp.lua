@@ -35,10 +35,7 @@ return {
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
-       
       local lspconfig = require('lspconfig')
-      
       require('nvim-autopairs').setup{}
 
       local servers = { 
@@ -56,8 +53,7 @@ return {
           capabilities = capabilities,
          }
        end
-      
-       require('lspconfig').omnisharp.setup {
+--[[ require('lspconfig').omnisharp.setup {
          capabilities = capabilities,
          root_dir = require("lspconfig.util").root_pattern("*.sln", "*.csproj", ".git"),
          settings = {
@@ -81,6 +77,7 @@ return {
            end
           end
        }
+    --]]
 
       -- If you want insert `(` after select function or method item
       local cmp_autopairs = require('nvim-autopairs.completion.cmp')

@@ -31,7 +31,6 @@ return {
       --require("neodev").setup({
        -- library = { plugins = { "nvim-dap-ui" }, types = true },
       --})
-        
     end
     },
     "L3MON4D3/LuaSnip",
