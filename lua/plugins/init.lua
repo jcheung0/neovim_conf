@@ -17,7 +17,7 @@ return {
           },
           sections = {
             lualine_x = {
-              { require("mcphub.extensions.lualine")},
+              "mcphub",
             }
           }
         }
