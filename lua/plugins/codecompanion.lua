@@ -1,4 +1,6 @@
-return {
+return {}
+
+--[[return {
     {
       "olimorris/codecompanion.nvim",
       config = true,
@@ -24,4 +26,4 @@ return {
       }
     }, 
 }
-
+]]--

@@ -35,7 +35,6 @@ return {
     },
     "L3MON4D3/LuaSnip",
     {'akinsho/bufferline.nvim',dependencies = 'kyazdani42/nvim-web-devicons'},
-    'simrat39/rust-tools.nvim',
     "terrortylor/nvim-comment",
     'windwp/nvim-autopairs',
     'saadparwaiz1/cmp_luasnip',
