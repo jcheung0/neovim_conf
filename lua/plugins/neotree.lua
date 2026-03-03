@@ -11,7 +11,6 @@ return {
     -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
   },
   init = function()
-    
     vim.api.nvim_create_autocmd('BufEnter', {
         group    = vim.api.nvim_create_augroup('RemoteFileInit', {clear = true}),
         callback = function()
@@ -40,7 +39,7 @@ return {
             vim.api.nvim_clear_autocmds{group = 'NeoTreeInit'}
           end
         end
-      })  
+      })
   end,
   opts = {
     filesystem = {
@@ -48,6 +47,6 @@ return {
       filtered_items = {
         hide_dotfiles = false,
       }
-    } 
-  } 
+    }
+  }
 }
