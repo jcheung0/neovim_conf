@@ -1,5 +1,7 @@
 -- require('plugins')
 require('editorconf')
+require("extensions")
+require("extconfig")
 require("configs.lazy")
 require("lsp")
 --require('autocomplete')

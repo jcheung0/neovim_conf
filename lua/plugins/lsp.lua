@@ -35,8 +35,6 @@ return {
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-      -- local lspconfig = require('lspconfig')
-      require('nvim-autopairs').setup{}
 
       local servers = { 
          'rust_analyzer', 
@@ -53,19 +51,9 @@ return {
             on_attach = my_custom_on_attach,
             capabilities = capabilities,    
          });
-        --lspconfig[lsp].setup {
-        --   on_attach = my_custom_on_attach,
-         -- capabilities = capabilities,
-        -- }
        end
-
-      -- If you want insert `(` after select function or method item
-      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-      local cmp = require('cmp')
-      cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
   end
 }
--- lazy.nvim
 
 
 
